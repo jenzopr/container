@@ -38,7 +38,7 @@ RUN \
     # Clean /tmp (downloaded packages)
     rm -r /tmp/* && \
     # Generate an ssh key
-    sudo -u rstudio ssh-keygen -t ed22519 -N "" -f /home/rstudio/.ssh/id_ed25519
+    sudo -u rstudio ssh-keygen -t ed25519 -N "" -f /home/rstudio/.ssh/id_ed25519
 
 ENV \
     ROOT=TRUE \
