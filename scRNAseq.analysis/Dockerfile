@@ -1,15 +1,9 @@
 # Run like so:
-#  podman pull rocker/rstudio && podman build --squash -t scRNAseq.analysis:latest https://gitlab.gwdg.de/jens.preussner/container.git#:scRNAseq.analysis
+#  podman pull rocker/rstudio && podman build --squash -t scrnaseq.analysis:latest https://gitlab.gwdg.de/jens.preussner/container.git#:scRNAseq.analysis
 
 FROM rocker/rstudio:latest
-MAINTAINER Jens Preussner (jens.preussner@mpi-bn.mpg.de)
-
-# Place an '.Renviron' file that must contain a github access token line
-# (see `usethis::browse_github_pat(); usethis::edit_r_environ()`) to
-# prevent interference by github rate limiting.
-# The file must reside in the same directory as the docker file
-# COPY ./Renviron /root/.Renviron
-# COPY ./Renviron /home/rstudio/.Renviron
+LABEL maintainer="Jens Preussner <jens.preussner@mpi-bn.mpg.de>"
+LABEL maintainer="Johannes Graumann <johannes.graumann@mpi-bn.mpg.de>"
 
 RUN \
     # Install additional tools
@@ -20,6 +14,8 @@ RUN \
     ## Assure up-to-date environment
     apt-get dist-upgrade --assume-yes && \
     apt-get install --assume-yes --no-install-recommends \
+      ## Fetch additional libraries
+      libssh2-1-dev libgit2-dev \
       ## Fetch the additional tools
       git-lfs gnupg ssh-client \
       # Install libraries needed for compilation of the autonomics toolkit
@@ -28,10 +24,16 @@ RUN \
       ## Dependencies of roxygen2
       libxml2-dev zlib1g-dev \
       ## Dependencies of multipanelfigure (etc.)
-      libmagick++-dev && \
+      libmagick++-dev \
+      ## Python dependencies
+      python3-pip && \
     # Clean the cache(s)
     apt-get clean && \
     rm -r /var/lib/apt/lists/* && \
+    # Install python dependencies
+    pip3 install hdbscan umap-learn && \
+    # Install R infrastructure
+    sudo -u rstudio Rscript -e 'source("https://gitlab.gwdg.de/jens.preussner/container/raw/master/scRNAseq.analysis/setup.R")' && \
     # Set the time zone
     sh -c "echo 'Europe/Berlin' > /etc/timezone" && \
     dpkg-reconfigure -f noninteractive tzdata && \
