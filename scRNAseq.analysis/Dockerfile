@@ -26,11 +26,12 @@ RUN \
       ## Dependencies of multipanelfigure (etc.)
       libmagick++-dev \
       ## Python dependencies
-      python3-pip && \
+      python3-pip python3-setuptools cython3 python3-dev && \
     # Clean the cache(s)
     apt-get clean && \
     rm -r /var/lib/apt/lists/* && \
     # Install python dependencies
+    pip3 install --upgrade setuptools wheel && \
     pip3 install hdbscan umap-learn && \
     # Install R infrastructure
     sudo -u rstudio Rscript -e 'source("https://gitlab.gwdg.de/jens.preussner/container/raw/master/scRNAseq.analysis/setup.R")' && \
