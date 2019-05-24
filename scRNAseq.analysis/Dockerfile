@@ -1,7 +1,4 @@
-# Run like so:
-#  podman pull rocker/rstudio && podman build --squash -t scrnaseq.analysis:latest https://gitlab.gwdg.de/jens.preussner/container.git#:scRNAseq.analysis
-
-FROM rocker/rstudio:latest
+FROM rocker/rstudio:3.6.0
 LABEL maintainer="Jens Preussner <jens.preussner@mpi-bn.mpg.de>"
 LABEL maintainer="Johannes Graumann <johannes.graumann@mpi-bn.mpg.de>"
 

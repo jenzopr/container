@@ -1,3 +1,9 @@
+# Lock Bioc version
+bioc_version = "3.9"
+
+# Package dependencies
+bioc_packages <- c("scater", "ComplexHeatmap", "biomaRt", "multipanelfigure", "reticulate", "BiocStyle", "MAST", "destiny")
+
 # Retrieve/provide tools --------------------------------------------------
 # Provide the convenient "pacman" package management kit
 if (!require(pacman, quietly = TRUE)) install.packages("pacman",
@@ -11,10 +17,11 @@ pacman::p_load(char = c("BiocManager", "git2r", "magrittr", "remotes", "rmarkdow
                update = FALSE)
 
 # Update everything (already present) -------------------------------------
-BiocManager::install(checkBuilt = TRUE, ask = FALSE)
+BiocManager::install(checkBuilt = TRUE, ask = FALSE, version = bioc_version)
 
 # Install packages ------------------------------------------------------
-BiocManager::install(c("scater", "ComplexHeatmap", "biomaRt", "multipanelfigure", "reticulate", "BiocStyle"))
+BiocManager::install(package_dependencies,
+                     version = bioc_version)
 
 # Install github dependencies ------------------------------------------------
 remotes::install_github("jenzopr/singlecellutils", repos = BiocManager::repositories())
