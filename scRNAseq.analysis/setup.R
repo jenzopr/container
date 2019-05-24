@@ -20,7 +20,7 @@ pacman::p_load(char = c("BiocManager", "git2r", "magrittr", "remotes", "rmarkdow
 BiocManager::install(checkBuilt = TRUE, ask = FALSE, version = bioc_version)
 
 # Install packages ------------------------------------------------------
-BiocManager::install(package_dependencies,
+BiocManager::install(bioc_packages,
                      version = bioc_version)
 
 # Install github dependencies ------------------------------------------------
