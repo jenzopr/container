@@ -16,6 +16,6 @@ RUN \
 USER root
 RUN \
     # Don't generate a token, just log in
-    echo "c.NotebookApp.token = ''" >> /etc/jupyter/jupyter_notebook_config.py && \
+    echo -e "\n\nc.NotebookApp.token = ''" >> /etc/jupyter/jupyter_notebook_config.py && \
     fix-permissions /etc/jupyter/
 USER $NB_UID
