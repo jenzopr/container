@@ -9,7 +9,7 @@ RUN \
     $CONDA_DIR/bin/conda config --system --prepend channels conda-forge && \
     # Install scanpy via conda
     conda install --quiet --yes cython python-annoy 'numpy >=1.13' scikit-learn stream && \
-    conda clean --all -f -y && \
+    conda clean --all -f -y
 
 USER root
 RUN \
