@@ -1,0 +1,5 @@
+cython
+python-annoy
+numpy >=1.13
+scikit-learn
+stream
