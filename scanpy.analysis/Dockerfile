@@ -3,15 +3,16 @@ LABEL maintainer="Jens Preussner <jens.preussner@mpi-bn.mpg.de>"
 
 ENV CONDA_DIR=/opt/conda
 
+COPY ./requirements.txt /tmp/requirements.txt
+
 RUN \
     # Add bioconda & conda-forge channel
     $CONDA_DIR/bin/conda config --system --prepend channels bioconda && \
     $CONDA_DIR/bin/conda config --system --prepend channels conda-forge && \
     # Install scanpy via conda
-    conda install --quiet --yes cython python-annoy 'numpy >=1.13' scikit-learn scanpy opentsne && \
+    conda install --quiet --yes --file /tmp/requirements.txt && \
     conda clean --all -f -y && \
-    # Install bbknn
-    pip install bbknn
+    rm -rf /tmp/requirements.txt
 
 USER root
 RUN \

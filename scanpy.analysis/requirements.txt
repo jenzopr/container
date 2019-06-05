@@ -1,0 +1,7 @@
+cython
+python-annoy
+numpy>=1.13
+scikit-learn>=0.19.1
+scanpy
+opentsne
+bbknn
