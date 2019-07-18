@@ -2,7 +2,7 @@
 bioc_version = "3.9"
 
 # Package dependencies
-bioc_packages <- c("scater", "ComplexHeatmap", "biomaRt", "multipanelfigure", "reticulate", "BiocStyle", "MAST", "destiny")
+bioc_packages <- c("scater", "ComplexHeatmap", "biomaRt", "multipanelfigure", "reticulate", "BiocStyle", "MAST", "destiny", "scran", "genefilter", "Seurat")
 
 # Retrieve/provide tools --------------------------------------------------
 # Provide the convenient "pacman" package management kit
