@@ -25,6 +25,7 @@ BiocManager::install(bioc_packages,
 
 # Install github dependencies ------------------------------------------------
 remotes::install_github("jenzopr/singlecellutils", repos = BiocManager::repositories())
+remotes::install_github("ChristophH/sctransform", repos = BiocManager::repositories())
 # remotes::install_github("rstudio/gt", repos = BiocManager::repositories())
 
 # Install i2dash ----------------------------------------------------------
