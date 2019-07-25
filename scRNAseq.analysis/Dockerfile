@@ -1,4 +1,4 @@
-FROM rocker/rstudio:3.6.0
+FROM rocker/rstudio:3.6.1
 LABEL maintainer="Jens Preussner <jens.preussner@mpi-bn.mpg.de>"
 LABEL maintainer="Johannes Graumann <johannes.graumann@mpi-bn.mpg.de>"
 
