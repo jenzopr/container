@@ -13,7 +13,7 @@ if (!require(pacman, quietly = TRUE)) install.packages("pacman",
 pacman::p_delete(char = c("BioInstaller", "BiocManager"), quiet = TRUE)
 
 # Fetch tools required here
-pacman::p_load(char = c("BiocManager", "git2r", "magrittr", "remotes", "rmarkdown", "rprojroot"),
+pacman::p_load(char = c("BiocManager", "git2r", "magrittr", "remotes", "rmarkdown", "rprojroot", "tidyr"),
                update = FALSE)
 
 # Update everything (already present) -------------------------------------
@@ -26,7 +26,7 @@ BiocManager::install(bioc_packages,
 # Install github dependencies ------------------------------------------------
 remotes::install_github("jenzopr/singlecellutils", repos = BiocManager::repositories())
 remotes::install_github("ChristophH/sctransform", repos = BiocManager::repositories())
-# remotes::install_github("rstudio/gt", repos = BiocManager::repositories())
+remotes::install_github("rstudio/gt", repos = BiocManager::repositories())
 
 # Install i2dash ----------------------------------------------------------
 # install_git(url = "https://gitlab.gwdg.de/loosolab/software/i2dash.git", repos = BiocManager::repositories())
