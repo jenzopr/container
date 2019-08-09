@@ -13,7 +13,7 @@ if (!require(pacman, quietly = TRUE)) install.packages("pacman",
 pacman::p_delete(char = c("BioInstaller", "BiocManager"), quiet = TRUE)
 
 # Fetch tools required here
-pacman::p_load(char = c("BiocManager", "git2r", "magrittr", "remotes", "rmarkdown", "rprojroot", "tidyr"),
+pacman::p_load(char = c("BiocManager", "git2r", "magrittr", "remotes", "rmarkdown", "rprojroot", "tidyr", "Matrix.utils"),
                update = FALSE)
 
 # Update everything (already present) -------------------------------------
@@ -29,7 +29,7 @@ remotes::install_github("ChristophH/sctransform", repos = BiocManager::repositor
 remotes::install_github("rstudio/gt", repos = BiocManager::repositories())
 
 # Install i2dash ----------------------------------------------------------
-# install_git(url = "https://gitlab.gwdg.de/loosolab/software/i2dash.git", repos = BiocManager::repositories())
+install_git(url = "https://gitlab.gwdg.de/loosolab/software/i2dash.git", repos = BiocManager::repositories())
 
 # Setup/configure TinyTeX
 if (pacman::p_exists("tinytex")) {
