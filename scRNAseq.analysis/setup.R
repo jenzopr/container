@@ -7,7 +7,7 @@ bioc_packages <- c("scater", "ComplexHeatmap", "biomaRt", "multipanelfigure", "r
 # Retrieve/provide tools --------------------------------------------------
 # Provide the convenient "pacman" package management kit
 if (!require(pacman, quietly = TRUE)) install.packages("pacman",
-                                                       suppressUpdates = TRUE)
+                                                       suppressUpdates = TRUE, type = "source") 
 
 # Remove potential old Bioconductor version (ignored if not present)
 pacman::p_delete(char = c("BioInstaller", "BiocManager"), quiet = TRUE)
