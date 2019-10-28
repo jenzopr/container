@@ -29,7 +29,7 @@ remotes::install_github("ChristophH/sctransform", repos = BiocManager::repositor
 remotes::install_github("rstudio/gt", repos = BiocManager::repositories())
 
 # Install i2dash ----------------------------------------------------------
-install_git(url = "https://gitlab.gwdg.de/loosolab/software/i2dash.git", repos = BiocManager::repositories())
+remotes::install_git(url = "https://gitlab.gwdg.de/loosolab/software/i2dash.git", repos = BiocManager::repositories())
 
 # Setup/configure TinyTeX
 if (pacman::p_exists("tinytex")) {
