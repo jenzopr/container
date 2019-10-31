@@ -14,7 +14,6 @@ RUN \
       libssh2-1-dev libgit2-dev \
       ## Fetch the additional tools
       git-lfs gnupg ssh-client \
-      # Install libraries needed for compilation of the autonomics toolkit
       ## Dependencies of rgl
       libx11-dev libglu1-mesa-dev \
       ## Dependencies of roxygen2

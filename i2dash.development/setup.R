@@ -17,5 +17,6 @@ pacman::p_load(char = c("BiocManager", "git2r", "magrittr", "remotes", "flexdash
 BiocManager::install(checkBuilt = TRUE, ask = FALSE, version = bioc_version)
 
 # Install github dependencies ------------------------------------------------
-remotes::install_git(url = "https://gitlab.gwdg.de/loosolab/software/i2dash.git", repos = BiocManager::repositories(), dependencies = TRUE)
-# remotes::install_git(url = "https://gitlab.gwdg.de/loosolab/software/i2dash.scrnaseq.git", repos = BiocManager::repositories(), dependencies = TRUE)
+remotes::install_github("rstudio/gt", repos = BiocManager::repositories())
+remotes::install_git(url = "https://gitlab.gwdg.de/loosolab/software/i2dash.git", repos = BiocManager::repositories())
+# remotes::install_git(url = "https://gitlab.gwdg.de/loosolab/software/i2dash.scrnaseq.git", repos = BiocManager::repositories())
